@@ -2,29 +2,105 @@
 
 {% block content %}
 <div class="form-card">
-    <h1>About MedTech Support Desk</h1>
-    <p class="subtitle">Digital4Business (D4B) Business Programming &mdash; Group Project (Option A)</p>
+    <h1>About the Project</h1>
+    <br>
+    <h2 class="subtitle">Digital4Business (D4B) Professional Master’s in Advanced Digital Technologies for Business</h2>
+    <br>
+    <h3 class="subtitle">Business Programming (September 2026)</h3>
 
     <div class="detail-body" style="background: #ffffff; padding: 0; margin: 20px 0;">
-        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Project Overview</h3>
-        <p style="margin-bottom: 16px;">
-            The <strong>MedTech Support Desk</strong> is a custom web application developed to address a realistic clinical operations challenge: streamlining medical device and clinical IT fault reporting across hospital wards. Built using Python, Flask, SQLite, and Peewee ORM, the platform empowers nursing and clinical staff to log equipment issues, monitor biomedical triage progress, and update incident statuses securely.
-        </p>
+        
+        <div style="background: #f8fafc; padding: 16px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #1e3a8a;">
+            <p style="margin-bottom: 6px;"><strong>Project Title:</strong> MedTech Support Desk: A Clinical &amp; Medical Device Support Ticket Web App</p>
+            <p style="margin-bottom: 6px;"><strong>Selected Option:</strong> Option A &mdash; Customer Support Ticket Web App (Python / Flask / Peewee)</p>
+            <p><strong>Submitted To:</strong> Professor José Américo Rio</p>
+        </div>
 
-        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Project Team</h3>
-        <p style="margin-bottom: 16px;">
-            This project was collaboratively designed, programmed, and documented as Option A for the <strong>D4B Business Programming</strong> course by the following group members:
-        </p>
+        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Group Members &amp; Roles</h3>
         <ul style="margin-left: 20px; margin-bottom: 20px; line-height: 1.8;">
-            <li><strong>Roner Lamadrid Chichirita</strong> &mdash; Backend, Database Integration &amp; Core Application Logic</li>
-            <li><strong>Linda</strong> &mdash; UI/UX Layout, Responsive Styling &amp; Template Architecture</li>
-            <li><strong>Franz</strong> &mdash; Form Validation, JavaScript Interactivity &amp; Testing Documentation</li>
+            <li><strong>Roner Lamadrid Chichirita</strong> &mdash; Backend Engineering, Database Schema &amp; Flask Routing</li>
+            <li><strong>Linda</strong> &mdash; Front-End Architecture, Responsive UI/UX Styling &amp; Template Design</li>
+            <li><strong>Franz</strong> &mdash; Client-Side JavaScript Validation, Interactive Character Counter &amp; Quality Assurance Testing</li>
         </ul>
 
-        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Technologies &amp; Architecture</h3>
-        <p>
-            The system adheres strictly to the Option A guidelines, featuring a single relational database table (`Ticket`), lightweight server-side routing with Flask, responsive CSS styling, and client-side JavaScript interactions.
+        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Business Problem &amp; Solution</h3>
+        <p style="margin-bottom: 12px;">
+            <strong>The Business Problem:</strong> In acute hospital settings (surgical wards and ICUs), equipment malfunctions (ranging from infusion pump occlusion alarms to vital monitor sensor faults and EHR workstation glitches) are often reported via unstructured phone calls, paper slips, or fragmented messaging apps. This leads to delayed biomedical engineering triage, lost fault records, and increased patient safety risks due to unverified medical devices.
         </p>
+        <p style="margin-bottom: 20px;">
+            <strong>The Software Solution:</strong> The <em>MedTech Support Desk</em> is a lightweight, responsive web application built to centralize incident reporting and tracking. It enables nursing and clinical staff to log equipment faults, monitor repair triage states (Open, In Progress, Resolved), update clinical notes, and securely delete resolved records, ensuring clinical engineering teams maintain full auditability over ward technology.
+        </p>
+
+        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Main Functionality &amp; Technologies</h3>
+        <ul style="margin-left: 20px; margin-bottom: 20px; line-height: 1.8;">
+            <li><strong>Service Overview Portal:</strong> Landing page introducing the biomedical helpdesk with live aggregate ticket statistics.</li>
+            <li><strong>Incident Creation Form:</strong> Structured form capturing staff identity/ward, hospital email, device asset subject, and fault descriptions.</li>
+            <li><strong>Persistent Storage:</strong> Relational SQLite database (<q>tickets.db</q>) managed via Peewee ORM with a dedicated <q>Ticket</q> table.</li>
+            <li><strong>Ticket Queue &amp; CRUD Operations:</strong> Responsive tabular view with color-coded status badges, detail pages, editing forms, and secure deletion routes.</li>
+            <li><strong>Tech Stack:</strong> Python 3.12, Flask, Peewee ORM, HTML5 (Jinja2), CSS3 (responsive grid), and Vanilla JavaScript for character counting and form validation.</li>
+        </ul>
+
+        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Testing Evidence Summary</h3>
+        <div class="table-responsive" style="margin-bottom: 20px;">
+            <table class="ticket-table" style="font-size: 0.88rem;">
+                <thead>
+                    <tr>
+                        <th>Feature Tested</th>
+                        <th>Input Data</th>
+                        <th>Result</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Landing Page Stats</td>
+                        <td>Database connection check</td>
+                        <td>Rendered total &amp; active counts dynamically</td>
+                        <td><strong>PASS</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Form Validation</td>
+                        <td>Empty submission / short text</td>
+                        <td>Blocked submission &amp; showed error banner</td>
+                        <td><strong>PASS</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Character Counter</td>
+                        <td>Typing in description textarea</td>
+                        <td>Live updated character count (e.g., /500)</td>
+                        <td><strong>PASS</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Create Ticket (DB)</td>
+                        <td>Valid nurse details &amp; pump fault</td>
+                        <td>Inserted record into SQLite &amp; updated queue</td>
+                        <td><strong>PASS</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Edit &amp; Status Change</td>
+                        <td>Changed status to 'In Progress'</td>
+                        <td>Saved updates &amp; reflected yellow badge</td>
+                        <td><strong>PASS</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Delete Ticket</td>
+                        <td>Clicked delete &amp; confirmed dialog</td>
+                        <td>Removed record permanently from database</td>
+                        <td><strong>PASS</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Limitations &amp; Future Improvements</h3>
+        <p style="margin-bottom: 10px;"><strong>Current Limitations:</strong> Lack of user authentication/RBAC (any user can edit/delete tickets in this prototype); single database table storing static text notes without a historical audit log.</p>
+        <p style="margin-bottom: 20px;"><strong>Future Improvements:</strong> Implementing Flask-Login with distinct roles for clinical staff and biomedical technicians, automated notifications for critical status changes, and database table normalization (Users, Wards, Equipment).</p>
+
+        <h3 style="margin-bottom: 10px; color: #1e3a8a;">AI-Use Statement</h3>
+        <p style="margin-bottom: 10px; font-style: italic; background: #f8fafc; padding: 12px; border-radius: 6px;">
+            &ldquo;We used generative AI (Gemini) as a collaborative development assistant to structure our Flask application routes with Peewee ORM, design responsive CSS layouts with mobile breakpoints, and draft technical documentation. The group reviewed, tested, and debugged all Python code blocks, verified database interactions in VS Code, and customized the application domain around clinical medical device support.&rdquo;
+        </p>
+
     </div>
 
     <div class="form-actions">
