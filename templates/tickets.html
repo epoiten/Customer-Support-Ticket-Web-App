@@ -12,36 +12,41 @@
     <a href="{{ url_for('create_ticket') }}" class="btn btn-primary">Log the First Incident</a>
 </div>
 {% else %}
-<table class="ticket-table">
-    <thead>
-        <tr>
-            <th>Ticket ID</th>
-            <th>Device / Issue Subject</th>
-            <th>Reported By (Staff)</th>
-            <th>Repair Status</th>
-            <th>Logged Date</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for ticket in tickets %}
-        <tr>
-            <td>#{{ ticket.id }}</td>
-            <td><a href="{{ url_for('ticket_detail', ticket_id=ticket.id) }}"><strong>{{ ticket.subject }}</strong></a></td>
-            <td>{{ ticket.name }}<br><small>{{ ticket.email }}</small></td>
-            <td>
-                <span class="badge status-{{ ticket.status|lower|replace(' ', '-') }}">
-                    {{ ticket.status }}
-                </span>
-            </td>
-            <td>{{ ticket.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
-            <td>
-                <a href="{{ url_for('ticket_detail', ticket_id=ticket.id) }}" class="link-action">Details</a> |
-                <a href="{{ url_for('edit_ticket', ticket_id=ticket.id) }}" class="link-action">Edit</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="ticket-table">
+        <thead>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Device / Issue Subject</th>
+                <th>Reported By (Staff)</th>
+                <th>Repair Status</th>
+                <th>Logged Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td>#{{ ticket.id }}</td>
+                <td><a href="{{ url_for('ticket_detail', ticket_id=ticket.id) }}"><strong>{{ ticket.subject }}</strong></a></td>
+                <td>{{ ticket.name }}<br><small>{{ ticket.email }}</small></td>
+                <td>
+                    <span class="badge status-{{ ticket.status|lower|replace(' ', '-') }}">
+                        {{ ticket.status }}
+                    </span>
+                </td>
+                <td>{{ ticket.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td class="actions-cell">
+                    <a href="{{ url_for('ticket_detail', ticket_id=ticket.id) }}" class="link-action">Details</a> |
+                    <a href="{{ url_for('edit_ticket', ticket_id=ticket.id) }}" class="link-action">Edit</a> |
+                    <form action="{{ url_for('delete_ticket', ticket_id=ticket.id) }}" method="POST" class="inline-form" onsubmit="return confirm('Are you sure you want to permanently delete Ticket #{{ ticket.id }}?');">
+                        <button type="submit" class="link-delete">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+ </div>
 {% endif %}
 {% endblock %}

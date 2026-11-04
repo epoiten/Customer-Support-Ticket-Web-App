@@ -76,5 +76,14 @@ def edit_ticket(ticket_id):
 
     return render_template('edit.html', ticket=ticket)
 
+# 6. Route to delete an existing ticket
+@app.route('/tickets/<int:ticket_id>/delete', methods=['POST'])
+def delete_ticket(ticket_id):
+    ticket = Ticket.get_or_none(Ticket.id == ticket_id)
+    if not ticket:
+        return "Ticket not found", 404
+    ticket.delete_instance()
+    return redirect(url_for('list_tickets'))
+
 if __name__ == '__main__':
     app.run(debug=True)
