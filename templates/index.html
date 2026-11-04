@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero-card">
+    <h1>Welcome to Our Customer Support Service</h1>
+    <p>
+        Need help with an order, technical issue, or billing question? Our support portal allows you to submit a support request, track its current status in real time, and update your ticket details whenever new information becomes available.
+    </p>
+    <div class="stats-row">
+        <div class="stat-box">
+            <span class="stat-num">{{ total }}</span>
+            <span class="stat-label">Total Tickets Logged</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-num">{{ open_count }}</span>
+            <span class="stat-label">Active / Open Requests</span>
+        </div>
+    </div>
+    <div class="hero-actions">
+        <a href="{{ url_for('create_ticket') }}" class="btn btn-primary">Submit a New Ticket</a>
+        <a href="{{ url_for('list_tickets') }}" class="btn btn-secondary">View Existing Tickets</a>
+    </div>
+</section>
+
+<section class="info-grid">
+    <div class="info-card">
+        <h3>1. Submit a Request</h3>
+        <p>Fill out a quick form with your contact details, subject, and issue description.</p>
+    </div>
+    <div class="info-card">
+        <h3>2. Track Progress</h3>
+        <p>Browse the ticket list to check whether your request is Open, In Progress, or Resolved.</p>
+    </div>
+    <div class="info-card">
+        <h3>3. Update Anytime</h3>
+        <p>Edit your ticket if information changes or mark the issue as Resolved once fixed.</p>
+    </div>
+</section>
+{% endblock %}

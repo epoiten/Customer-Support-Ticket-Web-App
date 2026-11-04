@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="detail-card">
+    <div class="detail-header">
+        <div>
+            <span class="ticket-id">Ticket #{{ ticket.id }}</span>
+            <h1>{{ ticket.subject }}</h1>
+        </div>
+        <span class="badge status-{{ ticket.status|lower|replace(' ', '-') }}">
+            {{ ticket.status }}
+        </span>
+    </div>
+
+    <div class="detail-meta">
+        <p><strong>Submitted by:</strong> {{ ticket.name }} ({{ ticket.email }})</p>
+        <p><strong>Date Created:</strong> {{ ticket.created_at.strftime('%Y-%m-%d at %H:%M') }}</p>
+    </div>
+
+    <div class="detail-body">
+        <h3>Issue Description</h3>
+        <p>{{ ticket.description }}</p>
+    </div>
+
+    <div class="form-actions">
+        <a href="{{ url_for('edit_ticket', ticket_id=ticket.id) }}" class="btn btn-primary">Edit Ticket / Change Status</a>
+        <a href="{{ url_for('list_tickets') }}" class="btn btn-secondary">Back to Ticket List</a>
+    </div>
+</div>
+{% endblock %}
