@@ -2,24 +2,24 @@
 
 {% block content %}
 <div class="page-header">
-    <h1>Submitted Support Tickets</h1>
-    <a href="{{ url_for('create_ticket') }}" class="btn btn-primary">+ New Ticket</a>
+    <h1>Clinical Support &amp; Device Tickets</h1>
+    <a href="{{ url_for('create_ticket') }}" class="btn btn-primary">+ Report Device Issue</a>
 </div>
 
 {% if tickets.count() == 0 %}
 <div class="empty-state">
-    <p>No support tickets have been submitted yet.</p>
-    <a href="{{ url_for('create_ticket') }}" class="btn btn-primary">Create the First Ticket</a>
+    <p>No medical device or clinical support tickets are currently logged.</p>
+    <a href="{{ url_for('create_ticket') }}" class="btn btn-primary">Log the First Incident</a>
 </div>
 {% else %}
 <table class="ticket-table">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Subject</th>
-            <th>Customer</th>
-            <th>Status</th>
-            <th>Submitted</th>
+            <th>Ticket ID</th>
+            <th>Device / Issue Subject</th>
+            <th>Reported By (Staff)</th>
+            <th>Repair Status</th>
+            <th>Logged Date</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -36,7 +36,7 @@
             </td>
             <td>{{ ticket.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
             <td>
-                <a href="{{ url_for('ticket_detail', ticket_id=ticket.id) }}" class="link-action">View</a> |
+                <a href="{{ url_for('ticket_detail', ticket_id=ticket.id) }}" class="link-action">Details</a> |
                 <a href="{{ url_for('edit_ticket', ticket_id=ticket.id) }}" class="link-action">Edit</a>
             </td>
         </tr>

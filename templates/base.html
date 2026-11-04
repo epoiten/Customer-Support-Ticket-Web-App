@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Support Desk</title>
+    <title>MedTech Support Desk | Clinical & Medical Device Portal</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header class="navbar">
         <div class="container nav-content">
-            <a href="{{ url_for('index') }}" class="brand">SupportDesk</a>
+            <a href="{{ url_for('index') }}" class="brand">+ MedTech Support Desk</a>
             <nav>
-                <a href="{{ url_for('index') }}">Home</a>
-                <a href="{{ url_for('list_tickets') }}">All Tickets</a>
-                <a href="{{ url_for('create_ticket') }}" class="btn-nav">+ Submit Ticket</a>
+                <a href="{{ url_for('index') }}">Service Overview</a>
+                <a href="{{ url_for('list_tickets') }}">Device Tickets</a>
+                <a href="{{ url_for('create_ticket') }}" class="btn-nav">+ Report Device Issue</a>
             </nav>
         </div>
     </header>
@@ -23,7 +23,7 @@
     </main>
 
     <footer class="footer">
-        <p>Business Programming Project &mdash; Option A: Customer Support Ticket Web App</p>
+        <p>MedTech Clinical Engineering &amp; IT Support &mdash; Business Programming Option A (Python / Flask / Peewee)</p>
     </footer>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>

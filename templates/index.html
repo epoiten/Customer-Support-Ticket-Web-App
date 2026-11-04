@@ -2,38 +2,38 @@
 
 {% block content %}
 <section class="hero-card">
-    <h1>Welcome to Our Customer Support Service</h1>
+    <h1>Clinical &amp; Medical Device Support Service</h1>
     <p>
-        Need help with an order, technical issue, or billing question? Our support portal allows you to submit a support request, track its current status in real time, and update your ticket details whenever new information becomes available.
+        Welcome to the central Biomedical Engineering &amp; Clinical IT Helpdesk. Clinical staff and ward coordinators can use this portal to report malfunctions with medical devices (infusion pumps, vital sign monitors, ultrasound units, barcode scanners) or clinical ward workstations, monitor repair progress, and update ticket statuses once equipment is returned to service.
     </p>
     <div class="stats-row">
         <div class="stat-box">
             <span class="stat-num">{{ total }}</span>
-            <span class="stat-label">Total Tickets Logged</span>
+            <span class="stat-label">Total Logged Incidents</span>
         </div>
         <div class="stat-box">
             <span class="stat-num">{{ open_count }}</span>
-            <span class="stat-label">Active / Open Requests</span>
+            <span class="stat-label">Active / Pending Repairs</span>
         </div>
     </div>
     <div class="hero-actions">
-        <a href="{{ url_for('create_ticket') }}" class="btn btn-primary">Submit a New Ticket</a>
-        <a href="{{ url_for('list_tickets') }}" class="btn btn-secondary">View Existing Tickets</a>
+        <a href="{{ url_for('create_ticket') }}" class="btn btn-primary">Report a Device Issue</a>
+        <a href="{{ url_for('list_tickets') }}" class="btn btn-secondary">View All Ward Tickets</a>
     </div>
 </section>
 
 <section class="info-grid">
     <div class="info-card">
-        <h3>1. Submit a Request</h3>
-        <p>Fill out a quick form with your contact details, subject, and issue description.</p>
+        <h3>1. Log Equipment Fault</h3>
+        <p>Submit your staff name, hospital email, the device name/asset ID in the subject line, and the fault description or error code.</p>
     </div>
     <div class="info-card">
-        <h3>2. Track Progress</h3>
-        <p>Browse the ticket list to check whether your request is Open, In Progress, or Resolved.</p>
+        <h3>2. Track Biomedical Triage</h3>
+        <p>Check the ticket queue to see if your device is Open (awaiting technician), In Progress (under repair), or Resolved.</p>
     </div>
     <div class="info-card">
-        <h3>3. Update Anytime</h3>
-        <p>Edit your ticket if information changes or mark the issue as Resolved once fixed.</p>
+        <h3>3. Update Clinical Status</h3>
+        <p>Edit existing tickets if symptoms change on the ward, or mark the ticket as Resolved once the device passes safety checks.</p>
     </div>
 </section>
 {% endblock %}
