@@ -30,6 +30,11 @@ def index():
     open_tickets = Ticket.select().where(Ticket.status != 'Resolved').count()
     return render_template('index.html', total=total_tickets, open_count=open_tickets)
 
+# About page
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 # 2. Page listing submitted tickets
 @app.route('/tickets')
 def list_tickets():

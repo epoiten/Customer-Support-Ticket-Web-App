@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-card">
+    <h1>About MedTech Support Desk</h1>
+    <p class="subtitle">Digital4Business (D4B) Business Programming &mdash; Group Project (Option A)</p>
+
+    <div class="detail-body" style="background: #ffffff; padding: 0; margin: 20px 0;">
+        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Project Overview</h3>
+        <p style="margin-bottom: 16px;">
+            The <strong>MedTech Support Desk</strong> is a custom web application developed to address a realistic clinical operations challenge: streamlining medical device and clinical IT fault reporting across hospital wards. Built using Python, Flask, SQLite, and Peewee ORM, the platform empowers nursing and clinical staff to log equipment issues, monitor biomedical triage progress, and update incident statuses securely.
+        </p>
+
+        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Project Team</h3>
+        <p style="margin-bottom: 16px;">
+            This project was collaboratively designed, programmed, and documented as Option A for the <strong>D4B Business Programming</strong> course by the following group members:
+        </p>
+        <ul style="margin-left: 20px; margin-bottom: 20px; line-height: 1.8;">
+            <li><strong>Roner Lamadrid Chichirita</strong> &mdash; Backend, Database Integration &amp; Core Application Logic</li>
+            <li><strong>Linda</strong> &mdash; UI/UX Layout, Responsive Styling &amp; Template Architecture</li>
+            <li><strong>Franz</strong> &mdash; Form Validation, JavaScript Interactivity &amp; Testing Documentation</li>
+        </ul>
+
+        <h3 style="margin-bottom: 10px; color: #1e3a8a;">Technologies &amp; Architecture</h3>
+        <p>
+            The system adheres strictly to the Option A guidelines, featuring a single relational database table (`Ticket`), lightweight server-side routing with Flask, responsive CSS styling, and client-side JavaScript interactions.
+        </p>
+    </div>
+
+    <div class="form-actions">
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Return to Home</a>
+        <a href="{{ url_for('list_tickets') }}" class="btn btn-secondary">View Ticket Queue</a>
+    </div>
+</div>
+{% endblock %}
