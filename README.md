@@ -54,7 +54,7 @@ The **MedTech Support Desk** is a lightweight, responsive Python/Flask web appli
 
 ## Step-by-Step Instructions to Run in VS Code
 
-1. **Clone or Download** the project folder (`customer_support_app`) and open it in **Visual Studio Code**.
+1. **Clone or Download** the project folder (`Customer-Support-Ticket-Web-App`) and open it in **Visual Studio Code**.
 
 2. **Open the Terminal** in VS Code (`Terminal -> New Terminal`).
 
